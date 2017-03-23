@@ -1,7 +1,9 @@
-package com.example.chat_program;
+package com.example.chat_program.act;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.example.chat_program.R;
 
 /**
  * Created by 任耀文 on 2017/3/23.

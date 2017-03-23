@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/kaiping"
-    tools:context="com.example.chat_program.MainActivity">
+    tools:context="com.example.chat_program.act.MainActivity">
 
     <TextView
         android:id="@+id/text_jinru"
