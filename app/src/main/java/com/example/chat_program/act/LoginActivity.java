@@ -8,8 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.chat_program.MainActivity;
 import com.example.chat_program.R;
+
+
+import com.example.chat_program.fragment.MessageFragment;
+
 
 /**
  * Created by 张泽雅文 on 2017/3/23.
@@ -44,11 +47,16 @@ public class LoginActivity extends AppCompatActivity {
                 String username = edit_username.getText().toString();
                 String password = edit_password.getText().toString();
                 if (username.equals("147") && password.equals("123")) {
+                    Intent intent = new Intent(LoginActivity.this, MessageActivity.class);
+                    startActivity(intent);
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-                }
+
+
+
+                };
             }
         });
-    }
-}
+
+}}

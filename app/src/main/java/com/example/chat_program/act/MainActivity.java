@@ -1,4 +1,4 @@
-package com.example.chat_program;
+package com.example.chat_program.act;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.chat_program.act.LoginActivity;
+import com.example.chat_program.R;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView, tv1;
@@ -86,15 +86,12 @@ public class MainActivity extends AppCompatActivity {
                     init();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                } finally {
-//                    init();
-
                 }
             }
-
-
         }).start();
-    }
+
+        }
+
 
 
     private void init() {

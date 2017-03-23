@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/kaiping"
-    android:orientation="vertical"
-    tools:context="com.example.chat_program.MainActivity">
+    android:background="@drawable/kaiping">
 
     <TextView
         android:id="@+id/text_jinru"
@@ -77,3 +76,4 @@
         android:textSize="40dp" />
 
 </LinearLayout>
+

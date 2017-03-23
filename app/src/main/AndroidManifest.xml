@@ -28,7 +28,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".act.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +38,7 @@
         <activity android:name=".act.LoginActivity"/>
         <activity android:name=".act.RegisterActivity"/>
         <activity android:name=".act.BaseActivity"/>
-
+<activity android:name=".act.MessageActivity"/>
         <!-- 设置环信应用的AppKey -->
         <meta-data android:name="EASEMOB_APPKEY"  android:value="1106161215178672#activity" />
         <!-- 声明SDK所需的service SDK核心功能-->
