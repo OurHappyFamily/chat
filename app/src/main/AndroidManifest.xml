@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".act.LoginActivity"/>
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".act.RegisterActivity"/>
         <activity android:name=".act.BaseActivity"/>
 
         <!-- 设置环信应用的AppKey -->
