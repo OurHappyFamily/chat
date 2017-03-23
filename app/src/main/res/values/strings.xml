@@ -5,5 +5,7 @@
     <string name="bu">不</string>
     <string name="jian">見</string>
     <string name="jianjijinru">点击进入</string>
+    <string name="denglu">登录</string>
+    <string name="zhuce">注册</string>
 
 </resources>
