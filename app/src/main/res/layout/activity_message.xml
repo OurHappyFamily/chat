@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<android.support.v4.view.ViewPager
-    android:layout_weight="1"
-    android:id="@+id/viewpaper"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-</android.support.v4.view.ViewPager>
-    <LinearLayout
-        android:layout_weight="8"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpaper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/button_message"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="消息"/>
+            android:layout_weight="1"
+            android:text="消息" />
+
         <Button
             android:id="@+id/button_people"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="联系人"/>
+            android:layout_weight="1"
+            android:text="联系人" />
+
         <Button
             android:id="@+id/button_set"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="设置"/>
+            android:layout_weight="1"
+            android:text="设置" />
 
 
     </LinearLayout>

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.example.chat_program.R;
 
 /**
- * Created by 张泽雅文 on 2017/3/23.
+ * 第一个消息列表页
  */
 
 public class MessageFragment extends Fragment {

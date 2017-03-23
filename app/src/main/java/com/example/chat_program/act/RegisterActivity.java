@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.example.chat_program.R;
 
 /**
- * Created by 任耀文 on 2017/3/23.
+ * 注册页面
  */
 
 public class RegisterActivity extends Activity {

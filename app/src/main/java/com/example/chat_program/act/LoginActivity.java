@@ -11,15 +11,14 @@ import android.widget.Toast;
 import com.example.chat_program.R;
 
 
-import com.example.chat_program.fragment.MessageFragment;
-
-
 /**
- * Created by 张泽雅文 on 2017/3/23.
+ * 登陆页
  */
 
 public class LoginActivity extends AppCompatActivity {
+    // 输入姓名        输入密码
     private EditText edit_username, edit_password;
+    //登录按钮         注册按钮
     private Button button_login, button_zhuce;
 
     @Override
@@ -28,12 +27,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         init();
     }
-
+// 初始化控件   设置点击事件
     private void init() {
         edit_username = (EditText) findViewById(R.id.edit_username);
         edit_password = (EditText) findViewById(R.id.edit_password);
         button_login = (Button) findViewById(R.id.button_login);
         button_zhuce = (Button) findViewById(R.id.button_zhuce);
+        //点击按钮跳转到注册界面
         button_zhuce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //点击按钮如果登录成功跳转到主界面，如果失败，提示一下登录失败
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
