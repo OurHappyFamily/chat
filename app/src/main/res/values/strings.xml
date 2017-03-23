@@ -5,5 +5,16 @@
     <string name="bu">不</string>
     <string name="jian">見</string>
     <string name="jianjijinru">点击进入</string>
+    <string name="register_tv_number">注册帐号:</string>
+    <string name="register_tv_pasword">设置密码:</string>
+    <string name="register_tv_again_pasword">确认密码:</string>
+    <string name="register_tv_sex">选择性别:</string>
+    <string name="radioButton">男</string>
+    <string name="radioButton2">女</string>
+    <string name="register_tv_age">设置年龄:</string>
+    <string name="register_tv_year">年</string>
+    <string name="register_tv_month">月</string>
+    <string name="register_tv_day">日</string>
+    <string name="register_btn">提交</string>
 
 </resources>
