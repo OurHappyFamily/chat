@@ -26,7 +26,7 @@ private TextView textView;
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, null);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
