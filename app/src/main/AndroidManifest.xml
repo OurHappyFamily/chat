@@ -35,6 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".act.LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".act.BaseActivity"/>
+
         <!-- 设置环信应用的AppKey -->
         <meta-data android:name="EASEMOB_APPKEY"  android:value="1106161215178672#activity" />
         <!-- 声明SDK所需的service SDK核心功能-->

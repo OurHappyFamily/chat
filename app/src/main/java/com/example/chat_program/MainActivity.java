@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.chat_program.act.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
 private TextView textView;
 
@@ -51,7 +53,7 @@ private TextView textView;
 
 
         private void init() {
-            Intent intent = new Intent(MainActivity.this,null);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         }
 

@@ -5,7 +5,6 @@
     <string name="bu">不</string>
     <string name="jian">見</string>
     <string name="jianjijinru">点击进入</string>
-<<<<<<< HEAD
     <string name="register_tv_number">注册帐号:</string>
     <string name="register_tv_pasword">设置密码:</string>
     <string name="register_tv_again_pasword">确认密码:</string>
@@ -17,9 +16,7 @@
     <string name="register_tv_month">月</string>
     <string name="register_tv_day">日</string>
     <string name="register_btn">提交</string>
-=======
     <string name="denglu">登录</string>
     <string name="zhuce">注册</string>
->>>>>>> a97641c6c8a8e0002414ac497ea26b2b8eee1ea0
 
 </resources>
