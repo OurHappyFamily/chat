@@ -72,6 +72,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         viewPager.setCurrentItem(0);
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
