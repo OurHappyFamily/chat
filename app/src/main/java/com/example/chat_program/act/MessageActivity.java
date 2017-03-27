@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+
 
 import com.example.chat_program.R;
 import com.example.chat_program.fragment.MessageFragment;
@@ -25,6 +27,7 @@ import java.util.List;
 public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
     //         消息按钮    联系人按钮    设置按钮
     private Button button_message,button_people,button_set;
+
     //  滑动控件
     private ViewPager viewPager;
     // fragment管理器
@@ -83,7 +86,12 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         //设置当前页面
         viewPager.setCurrentItem(0);
     }
+
+
+
+
 // 判断点击事件
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
