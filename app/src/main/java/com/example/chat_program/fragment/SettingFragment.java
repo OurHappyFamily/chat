@@ -1,6 +1,5 @@
 package com.example.chat_program.fragment;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.chat_program.R;
@@ -110,6 +108,7 @@ public class SettingFragment extends Fragment {
                         }).show();
             }
         });
+
         fragment_set_set5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

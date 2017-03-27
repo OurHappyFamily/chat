@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="300dp"
-        android:hint="请输入您的用户名:"
+        android:hint="请输入账号:"
         android:imeOptions="actionNext"
         android:singleLine="true"
 
@@ -24,7 +24,7 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="请输入您的密码："
+        android:hint="请输入密码："
         android:imeOptions="actionGo"
         android:inputType="textPassword"
         android:singleLine="true"
@@ -32,16 +32,17 @@
 
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:weightSum="1">
 
         <Button
-            android:background="@drawable/shezhibeijinganniu"
+            android:background="@drawable/btn_bg1"
             android:id="@+id/button_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
             android:layout_margin="15dp"
             android:layout_weight="0.45"
             android:onClick="denglu"
@@ -50,13 +51,13 @@
             android:textSize="20sp" />
 
         <Button
-            android:background="@drawable/shezhibeijinganniu"
+            android:background="@drawable/btn_bg1"
             android:id="@+id/button_zhuce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
-            android:layout_weight="0.40"
+            android:layout_weight="0.45"
             android:onClick="zhuce"
             android:padding="10dp"
             android:text="@string/zhuce"

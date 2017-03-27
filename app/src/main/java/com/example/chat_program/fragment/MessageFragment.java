@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.chat_program.R;
 import com.example.chat_program.adapter.MessageAdapter;
@@ -22,6 +23,7 @@ public class MessageFragment extends Fragment {
     private ListView listView;
     private List<String> list= new ArrayList<String>();
     private View view;
+    private TextView textView;
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -39,7 +41,8 @@ public class MessageFragment extends Fragment {
 
     private void init() {
         listView= (ListView) view.findViewById(R.id.listview_message);
-
+        textView = (TextView) view.findViewById(R.id.textview);
+        listView.setEmptyView(textView);
         list.add("aaaaaaa");
         list.add("aaaaaaa");
         list.add("aaaaaaa");
