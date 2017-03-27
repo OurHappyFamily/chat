@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.example.chat_program.R;
 
 /**
- * Created by 张泽雅文 on 2017/3/23.
+ * 第二页联系人页
  */
 
 public class PeopleFragment extends Fragment {

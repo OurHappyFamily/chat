@@ -10,9 +10,15 @@ import android.widget.TextView;
 
 import com.example.chat_program.R;
 
+/**
+ * 开屏页
+ */
 public class MainActivity extends AppCompatActivity {
+    //点击跳转      倒计时跳转
     private TextView textView, tv1;
+    //设置常量  用途 代表时间
     private static final String SLEEP_TIME_KEY = "time";
+    //设置常量  用途 代表秒数
     private static final long SLEEP_TIME = 1000;
 
     Handler handler = new Handler() {
@@ -32,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         shuimian();
         djs();
     }
-
+        //点击textview跳转到登录页
     private void dianjitiaozhuan() {
         textView = (TextView) findViewById(R.id.text_jinru);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+        //倒计时的方法
     private void djs() {
         tv1 = (TextView) findViewById(R.id.text_djs1);
 
@@ -54,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 for (int x = 3; x > -1; x--) {
                     String a = String.valueOf(x);
-//编辑需要发送的消息
+        //编辑需要发送的消息
                     Message msg = new Message();
                     Bundle data = new Bundle();
                     data.putString(SLEEP_TIME_KEY, a);
                     msg.setData(data);
-//给handler发送消息
+        //给handler发送消息
                     handler.sendMessage(msg);
 
                     try {
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+        //  开屏页 休眠方法
     private void shuimian() {
         new Thread(new Runnable() {
             @Override
@@ -93,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
+        //从开平页跳转到登陆页
     private void init() {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
