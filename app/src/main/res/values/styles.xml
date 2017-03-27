@@ -6,6 +6,19 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--去掉界面标题的属性-->
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CustomDialog" parent="Theme.AppCompat.Dialog">
+        <!--是否显示背景阴影-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--是否设置背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否设置进度颜色-->
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>
+
+

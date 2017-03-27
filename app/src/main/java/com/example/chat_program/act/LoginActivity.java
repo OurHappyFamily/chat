@@ -47,16 +47,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = edit_username.getText().toString();
                 String password = edit_password.getText().toString();
+
                 if (username.equals("147") && password.equals("123")) {
                     Intent intent = new Intent(LoginActivity.this, MessageActivity.class);
                     startActivity(intent);
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-
-
-
-                };
+                }
             }
         });
 
