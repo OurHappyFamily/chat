@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/alerdialog_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="姓名" />
+
+    <EditText
+        android:id="@+id/alerdialog_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="昵称" />
+
+    <EditText
+        android:id="@+id/alerdialog_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="年龄" />
+
+    <EditText
+        android:id="@+id/alerdialog_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="性别" />
+
+    <EditText
+        android:id="@+id/alerdialog_work"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="职业" />
+
+    <EditText
+        android:id="@+id/alerdialog_region"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="地区" />
+</LinearLayout>
