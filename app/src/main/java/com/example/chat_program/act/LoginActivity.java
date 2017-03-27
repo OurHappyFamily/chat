@@ -51,10 +51,15 @@ public class LoginActivity extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //显示dialog
                 cd.show();
                 final String username = edit_username.getText().toString();
                 final String password = edit_password.getText().toString();
+
+
+
+
                 if (username.equals("147") && password.equals("123")) {
                    // 等待2秒后跳转
                    new Thread(new Runnable() {
@@ -75,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                    }).start();
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 } else {
+
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -100,6 +106,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 };
+
+
+
+
             }
         });
 

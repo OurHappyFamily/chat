@@ -1,8 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ccc"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/ccc">
 
 
     <EditText
@@ -10,12 +10,11 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-
         android:layout_marginTop="300dp"
         android:hint="请输入您的用户名:"
         android:imeOptions="actionNext"
         android:singleLine="true"
-        android:textColor="#FFFAFA"
+
 
         />
 
@@ -30,7 +29,7 @@
         android:imeOptions="actionGo"
         android:inputType="textPassword"
         android:singleLine="true"
-        android:textColor="#FFFAFA" />
+        />
 
 
     <LinearLayout
@@ -40,31 +39,28 @@
         android:weightSum="1">
 
         <Button
-
+            android:background="@drawable/shezhibeijinganniu"
             android:id="@+id/button_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0.45"
-            android:background="#1fbaf3"
             android:onClick="denglu"
             android:padding="10dp"
             android:text="@string/denglu"
-            android:textColor="#ffffff"
             android:textSize="20sp" />
 
         <Button
+            android:background="@drawable/shezhibeijinganniu"
             android:id="@+id/button_zhuce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:layout_weight="0.40"
-            android:background="#1fbaf3"
             android:onClick="zhuce"
             android:padding="10dp"
             android:text="@string/zhuce"
-            android:textColor="#ffffff"
             android:textSize="20sp" />
     </LinearLayout>
 
