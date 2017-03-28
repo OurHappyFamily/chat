@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.chat_program.R;
 import com.example.chat_program.view.CustomDialog;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 
 
 /**
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     //登录按钮         注册按钮
     private Button button_login, button_zhuce;
     private CustomDialog cd;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +36,14 @@ public class LoginActivity extends AppCompatActivity {
         //实例化Dialog并设置styles
         cd = new CustomDialog(this, R.style.CustomDialog);
     }
-// 初始化控件   设置点击事件
+
+    // 初始化控件   设置点击事件
     private void init() {
         edit_username = (EditText) findViewById(R.id.edit_username);
         edit_password = (EditText) findViewById(R.id.edit_password);
         button_login = (Button) findViewById(R.id.button_login);
         button_zhuce = (Button) findViewById(R.id.button_zhuce);
+//        edit_username.setText(SPUtils.getLastLoginUserName(this));
         //点击按钮跳转到注册界面
         button_zhuce.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //点击按钮如果登录成功跳转到主界面，如果失败，提示一下登录失败
+
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,60 +62,51 @@ public class LoginActivity extends AppCompatActivity {
                 final String username = edit_username.getText().toString();
                 final String password = edit_password.getText().toString();
 
-
-
-
-                if (username.equals("147") && password.equals("123")) {
-                   // 等待2秒后跳转
-                   new Thread(new Runnable() {
-                       @Override
-                       public void run() {
-
-                           try {
-                               Thread.sleep(2000);
-                               //取消显示dialog
-                               cd.dismiss();
-                               Intent intent = new Intent(LoginActivity.this, MessageActivity.class);
-                               startActivity(intent);
-                           } catch (InterruptedException e) {
-                               e.printStackTrace();
-                           }
-
-                       }
-                   }).start();
-                    Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                //如果账号密码有一个为空则提示“帐号或密码不能为空”
+                if (TextUtils.isEmpty(username)
+                        || TextUtils.isEmpty(password)) {
+                    Toast.makeText(LoginActivity.this, "帐号或密码不能为空！", Toast.LENGTH_SHORT).show();
+                    cd.dismiss();
                 } else {
+                    //如果账号密码错误则提示“登录失败”
+//                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                    login(username, password);
 
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Thread.sleep(2000);
-                                cd.dismiss();
-
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                    }).start();
-                    //如果账号密码有一个为空则提示“帐号或密码不能为空”
-                    if (TextUtils.isEmpty(username)
-                            || TextUtils.isEmpty(password)) {
-                        Toast.makeText(LoginActivity.this, "帐号或密码不能为空！", Toast.LENGTH_SHORT).show();
-                    }else {
-                        //如果账号密码错误则提示“登录失败”
-                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-                    }
-
-
-
-                };
-
-
+                }
 
 
             }
-        });
 
-}}
+
+        });
+    }
+
+    private void login(final String username, String password) {
+        EMClient.getInstance().login(username, password, new EMCallBack() {//回调
+            @Override
+            public void onSuccess() {
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                Log.d("main", "登录聊天服务器成功！");
+
+                Intent intent = new Intent(LoginActivity.this, MessageActivity.class);
+                startActivity(intent);
+                cd.dismiss();
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                Log.d("main", "登录聊天服务器失败！");
+
+                cd.dismiss();
+            }
+        });
+    }
+
+
+}

@@ -93,5 +93,13 @@
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="#b8b8b8" />
-
+<Button
+    android:id="@+id/button_tuichu"
+    android:background="@drawable/btn_bg2"
+    android:layout_marginTop="40dp"
+    android:layout_gravity="center_horizontal"
+    android:text="退出登录"
+    android:textSize="30sp"
+    android:layout_width="250dp"
+    android:layout_height="60dp" />
 </LinearLayout>
