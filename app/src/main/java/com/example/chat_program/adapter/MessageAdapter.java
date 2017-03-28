@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 张泽雅文 on 2017/3/27.
+ * 消息列表适配器
  */
 
 public class MessageAdapter extends BaseAdapter {

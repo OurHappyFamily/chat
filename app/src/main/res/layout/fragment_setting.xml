@@ -9,19 +9,21 @@
         android:layout_height="wrap_content"
         android:background="#0c94e8"
         android:gravity="center_horizontal"
-        android:text="设置"
+        android:text="设 置"
         android:textColor="#ffffff"
         android:textSize="35sp" />
 
     <TextView
+
+        android:layout_marginLeft="20dp"
         android:id="@+id/fragment_set_set1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:text="个人信息"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <View
         android:layout_width="match_parent"
@@ -29,14 +31,15 @@
         android:background="#b8b8b8" />
 
     <TextView
+        android:layout_marginLeft="20dp"
         android:id="@+id/fragment_set_set2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:text="新消息提醒"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <View
         android:layout_width="match_parent"
@@ -44,14 +47,15 @@
         android:background="#b8b8b8" />
 
     <TextView
+        android:layout_marginLeft="20dp"
         android:id="@+id/fragment_set_set3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:text="聊天"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <View
         android:layout_width="match_parent"
@@ -59,14 +63,15 @@
         android:background="#b8b8b8" />
 
     <TextView
+        android:layout_marginLeft="20dp"
         android:id="@+id/fragment_set_set4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:text="隐私"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <View
         android:layout_width="match_parent"
@@ -74,18 +79,27 @@
         android:background="#b8b8b8" />
 
     <TextView
+        android:layout_marginLeft="20dp"
         android:id="@+id/fragment_set_set5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:text="通用"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="#b8b8b8" />
-
+<Button
+    android:id="@+id/button_tuichu"
+    android:background="@drawable/btn_bg2"
+    android:layout_marginTop="40dp"
+    android:layout_gravity="center_horizontal"
+    android:text="退出登录"
+    android:textSize="30sp"
+    android:layout_width="250dp"
+    android:layout_height="60dp" />
 </LinearLayout>

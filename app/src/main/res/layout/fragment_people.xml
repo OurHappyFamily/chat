@@ -2,9 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f00fff">
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0c94e8"
+        android:gravity="center_horizontal"
+        android:text="联 系 人"
+        android:textColor="#ffffff"
+        android:textSize="35sp" />
 <ListView
-    android:listSelector="@drawable/ccc"
+    android:listSelector="@drawable/btn_bg2"
     android:id="@+id/listview_people"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>

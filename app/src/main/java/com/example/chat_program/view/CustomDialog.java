@@ -13,10 +13,11 @@ import com.example.chat_program.R;
  */
 
 public class CustomDialog extends ProgressDialog {
+    //继承父类自带两个构造方法
     public CustomDialog(Context context) {
         super(context);
     }
-
+    //继承父类自带构造方法
     public CustomDialog(Context context, int theme) {
         super(context, theme);
     }
@@ -33,7 +34,7 @@ public class CustomDialog extends ProgressDialog {
         setCancelable(true);
 
         setCanceledOnTouchOutside(true);
-
+        //设置dialog布局
         setContentView(R.layout.load_dialog);
         WindowManager.LayoutParams params = getWindow().getAttributes();
         //得到宽和高

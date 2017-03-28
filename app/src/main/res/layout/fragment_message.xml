@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff0000"
     android:orientation="vertical">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0c94e8"
+        android:gravity="center_horizontal"
+        android:text="消 息"
+        android:textColor="#ffffff"
+        android:textSize="35sp" />
+    <TextView
+        android:textSize="25dp"
+        android:id="@+id/textview"
+        android:text="该页暂无信息"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 <ListView
-    android:listSelector="@drawable/kaiping"
+    android:listSelector="@drawable/btn_bg2"
     android:id="@+id/listview_message"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
