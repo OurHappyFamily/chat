@@ -17,9 +17,9 @@ import java.util.List;
 
 public class MessageAdapter extends BaseAdapter {
     private Context context;
-    private List <String>list= new ArrayList();
+    private List<String> list = new ArrayList();
 
-    public MessageAdapter(Context context, List <String>list) {
+    public MessageAdapter(Context context, List<String> list) {
         this.context = context;
         this.list = list;
     }
@@ -41,17 +41,18 @@ public class MessageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView==null){
-            convertView=View.inflate(context,R.layout.item_message,null);
-            TextView textView= (TextView) convertView.findViewById(R.id.text);
-            textView.setText(list.get(position));
-            textView.setOnClickListener(new View.OnClickListener() {
+        if (convertView == null) {
+            convertView = View.inflate(context, R.layout.item_message, null);
+
+        }
+        TextView textView = (TextView) convertView.findViewById(R.id.text);
+        textView.setText(list.get(position));
+        textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-    }
 
         return convertView;
     }

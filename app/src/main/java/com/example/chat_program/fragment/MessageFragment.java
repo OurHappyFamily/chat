@@ -21,26 +21,27 @@ import java.util.List;
 
 public class MessageFragment extends Fragment {
     private ListView listView;
-    private List<String> list= new ArrayList<String>();
+    private List<String> list = new ArrayList<String>();
     private View view;
     private TextView textView;
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init();
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         super.onCreateView(inflater, container, savedInstanceState);
-        view=inflater.inflate(R.layout.fragment_message,container,false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        view = inflater.inflate(R.layout.fragment_message, container, false);
         return view;
     }
 
 
-
     private void init() {
-        listView= (ListView) view.findViewById(R.id.listview_message);
+        listView = (ListView) view.findViewById(R.id.listview_message);
         textView = (TextView) view.findViewById(R.id.textview);
         listView.setEmptyView(textView);
         list.add("aaaaaaa");
@@ -52,9 +53,8 @@ public class MessageFragment extends Fragment {
         list.add("aaaaaaa");
 
 
-        MessageAdapter adapter=new MessageAdapter(getActivity(),list);
+        MessageAdapter adapter = new MessageAdapter(getActivity(), list);
         listView.setAdapter(adapter);
-
 
 
     }

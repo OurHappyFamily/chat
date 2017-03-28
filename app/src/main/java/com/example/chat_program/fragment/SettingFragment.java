@@ -1,6 +1,7 @@
 package com.example.chat_program.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,15 +9,21 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.chat_program.R;
+import com.example.chat_program.act.LoginActivity;
+import com.example.chat_program.act.MainActivity;
+import com.hyphenate.chat.EMClient;
 
 /**
  * 第三页设置页
  */
 
 public class SettingFragment extends Fragment {
+    private Button button_tuichu;
     private TextView fragment_set_set1, fragment_set_set2, fragment_set_set3, fragment_set_set4, fragment_set_set5;
     private View view;
 
@@ -46,6 +53,23 @@ public class SettingFragment extends Fragment {
         fragment_set_set3 = (TextView) view.findViewById(R.id.fragment_set_set3);
         fragment_set_set4 = (TextView) view.findViewById(R.id.fragment_set_set4);
         fragment_set_set5 = (TextView) view.findViewById(R.id.fragment_set_set5);
+        button_tuichu= (Button) view.findViewById(R.id.button_tuichu);
+        button_tuichu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               new AlertDialog.Builder(getActivity())
+                       .setMessage("确定退出吗")
+                       .setTitle("退出登录")
+                       .setNegativeButton("取消", null)
+                       .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               Intent intent = new Intent(getActivity(), LoginActivity.class);
+                               startActivity(intent);
+                           }
+                       }).show();
+            }
+        });
         //给控件添加点击事件
         fragment_set_set1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -40,11 +40,11 @@ public class PeopleAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-  if (convertView==null){
-      convertView =View.inflate(context, R.layout.item_people,null);
-  }
+        if (convertView == null) {
+            convertView = View.inflate(context, R.layout.item_people, null);
+        }
         TextView tixtview_people = (TextView) convertView.findViewById(R.id.tixtview_people);
-                 tixtview_people.setText(list.get(position));
+        tixtview_people.setText(list.get(position));
 
         return convertView;
     }
