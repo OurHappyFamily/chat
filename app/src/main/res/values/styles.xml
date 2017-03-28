@@ -9,6 +9,7 @@
 
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog">
         <!-- 阴影-->
         <item name="android:backgroundDimEnabled">true</item>
