@@ -17,17 +17,28 @@
         android:text="该页暂无信息"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!--实现上下滑动效果-->
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
 
-    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/shuaxin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 <ListView
     android:listSelector="@drawable/btn_bg2"
     android:id="@+id/listview_message"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
-    </ScrollView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+    <!--</ScrollView>-->
 
 
 </LinearLayout>

@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.chat_program.R;
+import com.hyphenate.chat.EMConversation;
+import com.hyphenate.chat.EMTextMessageBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +19,9 @@ import java.util.List;
 
 public class MessageAdapter extends BaseAdapter {
     private Context context;
-    private List <String>list= new ArrayList();
+    private List <EMConversation>list= new ArrayList();
 
-    public MessageAdapter(Context context, List <String>list) {
+    public MessageAdapter(Context context, List <EMConversation>list) {
         this.context = context;
         this.list = list;
     }
@@ -44,7 +46,9 @@ public class MessageAdapter extends BaseAdapter {
         if (convertView==null){
             convertView=View.inflate(context,R.layout.item_message,null);
             TextView textView= (TextView) convertView.findViewById(R.id.text);
-            textView.setText(list.get(position));
+            EMConversation bianliang = list.get(position);
+            EMTextMessageBody body = (EMTextMessageBody) bianliang.getLastMessage().getBody();
+            textView.setText(body.getMessage());
             textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

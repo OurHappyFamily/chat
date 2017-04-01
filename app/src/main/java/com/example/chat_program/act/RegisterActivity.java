@@ -41,12 +41,13 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         final String username=register_username.getText().toString();
         final String password=register_password.getText().toString();
+        //判断为空账号为空
         if (TextUtils.isEmpty(username)
                 || TextUtils.isEmpty(password)) {
             Toast.makeText(RegisterActivity.this, "帐号或密码不能为空！", Toast.LENGTH_SHORT).show();
 
         } else {
-
+        //
             new AlertDialog.Builder(this)
                     .setMessage("确定提交吗")
                     .setTitle("提交")
@@ -58,7 +59,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                                 @Override
                                 public void run() {
                                     try {
+                                        //环信注册账号和密码的方法
                                         EMClient.getInstance().createAccount(username, password);
+                                        Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                     } catch (HyphenateException e) {
