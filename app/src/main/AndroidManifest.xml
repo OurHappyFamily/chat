@@ -35,6 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".act.PrivateMessageActivity"/>
         <activity android:name=".act.LoginActivity"/>
         <activity android:name=".act.RegisterActivity"/>
         <activity android:name=".act.MessageActivity"/>

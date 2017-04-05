@@ -8,9 +8,6 @@ import android.view.WindowManager;
 import com.example.chat_program.R;
 
 
-/**
- * Created by yinm_pc on 2017/3/27.
- */
 
 public class CustomDialog extends ProgressDialog {
     //继承父类自带两个构造方法

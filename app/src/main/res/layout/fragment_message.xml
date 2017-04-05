@@ -1,28 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
+    <LinearLayout
+        android:minHeight="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#0c94e8"
-        android:gravity="center_horizontal"
-        android:text="消 息"
-        android:textColor="#ffffff"
-        android:textSize="35sp" />
-    <TextView
-        android:textSize="25dp"
-        android:id="@+id/textview"
-        android:text="该页暂无信息"
+        android:background="#8e8e8e"
+        android:gravity="center_horizontal">
+        <TextView
+android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:text="好久不见"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/main_Connection_lay"
+        android:orientation="horizontal"
+        android:minHeight="30dp">
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您的连接已断开"/>
+
+    </LinearLayout>
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_username"
+        android:hint="请输入发送内容"/>
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_content"
+        android:hint="请输入收件人"/>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text=""
+        android:textSize="22dp"/>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text=""
+        android:textSize="22dp"/>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text=""
+        android:textSize="22dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button11"
+            android:textSize="22dp"
+            android:layout_marginLeft="100dp"
+            android:text="发送"/>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button22"
+            android:textSize="22dp"
+            android:layout_marginLeft="80dp"
+            android:text="退出"/>
+
+    </LinearLayout>
+    <!--实现上下滑动效果-->
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/shuaxin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 <ListView
     android:listSelector="@drawable/btn_bg2"
     android:id="@+id/listview_message"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
 
+    <!--</ScrollView>-->
 
 
 </LinearLayout>

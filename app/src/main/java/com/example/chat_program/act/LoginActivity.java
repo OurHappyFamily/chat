@@ -1,6 +1,5 @@
 package com.example.chat_program.act;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.chat_program.R;
+import com.example.chat_program.fragment.MessageFragment;
 import com.example.chat_program.view.CustomDialog;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
