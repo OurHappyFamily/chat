@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.chat_program.R;
+import com.hyphenate.chat.EMClient;
+
+import java.util.Date;
 
 /**
  * 开屏页
@@ -29,13 +32,57 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private void init() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
 
+                //判断之前是否登陆过
+                if (EMClient.getInstance().isLoggedInBefore()) {
+                    //拿到当前时间
+                    long StartTime = new Date().getTime();
+                    //耗时操作 加载数据
+                    EMClient.getInstance().chatManager().loadAllConversations();
+                    EMClient.getInstance().groupManager().loadAllGroups();
+                    //拿到执行到的当前时间减去开始时间   得到加载所耗时间
+                    long time = new Date().getTime() - StartTime;
+                    //登陆过就跳转到主页（SDK已经实现自动登录）
+                    try {
+
+                        //延时（4000-time）秒跳转到主页
+                        Thread.sleep(4000 - time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    Intent intent = new Intent(MainActivity.this, MessageActivity.class);
+                    startActivity(intent);
+                } else {
+                    //没登录过跳转到登录页面
+
+                    try {
+                        //延时4秒跳转到登录页面
+                        Thread.sleep(4000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    //跳转到登录页面
+//                    intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+
+                }
+
+                finish();
+            }
+        }).start();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dianjitiaozhuan();
-        shuimian();
+init();
         djs();
     }
         //点击textview跳转到登录页
@@ -45,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
+                init();
             }
         });
     }
@@ -83,27 +129,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
         //  开屏页 休眠方法
-    private void shuimian() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(4000);
-                    init();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-
-        }
+//    private void shuimian() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(4000);
+//                    init();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+//
+//        }
 
 
         //从开平页跳转到登陆页
-    private void init() {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
+//    private void init() {
+//        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//        startActivity(intent);
+//    }
 
 //        EMClient.getInstance().login("cy","123456", new EMCallBack() {//回调
 //            @Override

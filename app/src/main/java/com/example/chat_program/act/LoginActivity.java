@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.chat_program.R;
+import com.example.chat_program.fragment.MessageFragment;
 import com.example.chat_program.view.CustomDialog;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;

@@ -13,6 +13,7 @@ import com.example.chat_program.R;
 import com.example.chat_program.fragment.MessageFragment;
 import com.example.chat_program.fragment.PeopleFragment;
 import com.example.chat_program.fragment.SettingFragment;
+import com.hyphenate.chat.EMClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+
         addTolist();
         init();
         init2();

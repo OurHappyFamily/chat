@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.chat_program.R;
 import com.example.chat_program.act.LoginActivity;
+import com.hyphenate.chat.EMClient;
 
 /**
  * 第三页设置页
@@ -61,6 +62,7 @@ public class SettingFragment extends Fragment {
                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                            @Override
                            public void onClick(DialogInterface dialog, int which) {
+                               EMClient.getInstance().logout(false);
                                Intent intent = new Intent(getActivity(), LoginActivity.class);
                                startActivity(intent);
                            }
