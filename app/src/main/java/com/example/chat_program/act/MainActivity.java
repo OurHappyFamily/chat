@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void init() {
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -67,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     //跳转到登录页面
-//                    intent = new Intent(SplashActivity.this, LoginActivity.class);
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
 
@@ -92,7 +92,13 @@ init();
             @Override
             public void onClick(View v) {
 
-                init();
+                if (EMClient.getInstance().isLoggedInBefore()) {
+                    Intent intent = new Intent(MainActivity.this, MessageActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
