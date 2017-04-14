@@ -42,11 +42,17 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
     private EditText editText, editText1;
     private TextView sendbtn, exitbtn;
     private ListView listView;
+<<<<<<< HEAD
+    private List<String> list = new ArrayList<String>();
+    private View view;
+    private TextView textView;
+=======
     private List<EMConversation> list = new ArrayList<EMConversation>();
     private View view;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private MessageAdapter adapter;
+>>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -76,8 +82,8 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
 
     }
 
-
     private void init() {
+<<<<<<< HEAD
         initData();
 //注册方法
         EMClient.getInstance().chatManager().addMessageListener(msgListener);
@@ -85,6 +91,29 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
 //        listView.setEmptyView(textView);
         adapter = new MessageAdapter(getActivity(), list);
         adapter.setListItemClick(this);
+=======
+<<<<<<< HEAD
+        listView = (ListView) view.findViewById(R.id.listview_message);
+        textView = (TextView) view.findViewById(R.id.textview);
+        listView.setEmptyView(textView);
+        list.add("aaaaaaa");
+        list.add("aaaaaaa");
+        list.add("aaaaaaa");
+        list.add("aaaaaaa");
+        list.add("aaaaaaa");
+        list.add("aaaaaaa");
+        list.add("aaaaaaa");
+
+
+        MessageAdapter adapter = new MessageAdapter(getActivity(), list);
+=======
+
+
+        //没数据时 显示指定textview
+//        listView.setEmptyView(textView);
+        adapter = new MessageAdapter(getActivity(), list);
+>>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
+>>>>>>> 20775ea014d177dd0c013791a308f2a9db8d98b8
         listView.setAdapter(adapter);
         //刷新控件初始化
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.shuaxin);
@@ -171,6 +200,8 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
                 //调用发送文本消息方法
                 sendTxtMsg();
 
+<<<<<<< HEAD
+=======
                 break;
         }
     }
@@ -276,6 +307,7 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
 
 
     @Override
+<<<<<<< HEAD
     public void onClick(int id) {
         ((MessageActivity) getActivity()).intent2Message(list.get(id).getUserName());
     }
@@ -288,6 +320,21 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
     @Override
     public void deleteItem(int id) {
 
+=======
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), PrivateMessageActivity.class);
+        //获取点击的item内容数据
+        EMConversation emc= (EMConversation) adapter.getItem(position);
+        if (emc.getType()==EMConversation.EMConversationType.GroupChat){
+
+            intent.putExtra("groupId",emc.getUserName());
+        }else {
+//把需要传递到下个页面的数据put到intent里
+            intent.putExtra("username",emc.getUserName());
+        }
+        startActivity(intent);
+>>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
+>>>>>>> 20775ea014d177dd0c013791a308f2a9db8d98b8
     }
     public void setChatText(HashMap<String, String> textMap) {
         adapter.setTextMap(textMap);

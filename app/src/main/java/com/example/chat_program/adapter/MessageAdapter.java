@@ -37,9 +37,15 @@ public class MessageAdapter extends BaseAdapter {
     private LinearLayout linearLayout;
     private HashMap<String, String> textMap = new HashMap<>();
     private Context context;
+<<<<<<< HEAD
+    private List<String> list = new ArrayList();
+
+    public MessageAdapter(Context context, List<String> list) {
+=======
     private List <EMConversation>list= new ArrayList();
     private ListItemClick listItemClick;
     public MessageAdapter(Context context, List <EMConversation>list) {
+>>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
         this.context = context;
         this.list = list;
     }
@@ -64,6 +70,21 @@ public class MessageAdapter extends BaseAdapter {
     }
 
     @Override
+<<<<<<< HEAD
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = View.inflate(context, R.layout.item_message, null);
+
+        }
+        TextView textView = (TextView) convertView.findViewById(R.id.text);
+        textView.setText(list.get(position));
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+=======
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         if (convertView==null){
@@ -135,6 +156,7 @@ linearLayout= (LinearLayout) convertView.findViewById(R.id.la);
 
 
 
+>>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
 
         return convertView;
     }

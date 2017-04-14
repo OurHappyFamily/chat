@@ -9,6 +9,7 @@
 <!--actionbar返回键的图片-->
         <!--<item name="homeAsUpIndicator">@drawable/dialog_bg</item>-->
     </style>
+
     <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog">
         <!-- 阴影-->
         <item name="android:backgroundDimEnabled">true</item>
