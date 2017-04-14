@@ -21,15 +21,16 @@
         android:orientation="horizontal">
 
         <Button
+            android:background="@color/colorAccent"
             android:layout_weight="1"
-            android:background="@drawable/q"
+android:text="消息"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/button_message"/>
 
         <Button
 
-            android:background="@drawable/q"
+            android:background="@color/colorPrimary"
             android:id="@+id/button_people"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -37,7 +38,7 @@
             android:text="联系人" />
 
         <Button
-            android:background="@drawable/q"
+android:background="@color/colorPrimary"
             android:id="@+id/button_set"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

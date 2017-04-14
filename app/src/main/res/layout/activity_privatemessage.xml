@@ -3,27 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <RelativeLayout
-        android:minHeight="50dp"
-        android:layout_gravity="right|center_vertical"
-        android:paddingRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#0000ff"
 
-        >
-        <TextView
-
-            android:layout_centerInParent="true"
-            android:text="好久不见"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/private_message_title_name"/>
-
-
-    </RelativeLayout>
 
     <ListView
         android:layout_weight="9"
@@ -57,5 +37,31 @@
             android:id="@+id/private_message_button"
             android:text="发送"/>
     </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Button
+        android:text="图片"
+        android:id="@+id/button_picture"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>
+    <FrameLayout
+        android:id="@+id/fragment_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+    </FrameLayout>
 </LinearLayout>

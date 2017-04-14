@@ -3,6 +3,7 @@ package com.example.chat_program.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.chat_program.R;
 import com.example.chat_program.act.PrivateMessageActivity;
+import com.example.chat_program.callback.ListItemClick;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMTextMessageBody;
@@ -21,6 +23,7 @@ import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import static android.R.attr.name;
@@ -32,12 +35,17 @@ import static com.hyphenate.chat.a.b.a.c;
 
 public class MessageAdapter extends BaseAdapter {
     private LinearLayout linearLayout;
+    private HashMap<String, String> textMap = new HashMap<>();
     private Context context;
     private List <EMConversation>list= new ArrayList();
-
+    private ListItemClick listItemClick;
     public MessageAdapter(Context context, List <EMConversation>list) {
         this.context = context;
         this.list = list;
+    }
+
+    public void setListItemClick(ListItemClick listItemClick) {
+        this.listItemClick = listItemClick;
     }
 
     @Override
@@ -73,15 +81,18 @@ linearLayout= (LinearLayout) convertView.findViewById(R.id.la);
             EMConversation msg=(EMConversation)getItem(position);
             String username = msg.getUserName();
             EMMessage latMessage=msg.getLastMessage();
-            EMMessage.Type type=latMessage.getType();
-            switch (type){
+        if (!TextUtils.isEmpty(textMap.get(msg.getUserName()))) {
+            content.setText("[草稿] " + textMap.get(msg.getUserName()));
+        } else {
+            EMMessage.Type type = latMessage.getType();
+            switch (type) {
                 case TXT:
-                   EMTextMessageBody textMessageBody= (EMTextMessageBody) latMessage.getBody();
+                    EMTextMessageBody textMessageBody = (EMTextMessageBody) latMessage.getBody();
                     content.setText(textMessageBody.getMessage());
-                break;
+                    break;
 
             }
-
+        }
             name.setText(username);
             time.setText(getLastMsgTime(msg) + "");
 
@@ -89,17 +100,21 @@ linearLayout= (LinearLayout) convertView.findViewById(R.id.la);
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, PrivateMessageActivity.class);
-                    //获取点击的item内容数据
-                    EMConversation emc= (EMConversation) list.get(position);
-                    if (emc.getType()==EMConversation.EMConversationType.GroupChat){
-
-                        intent.putExtra("groupId",emc.getUserName());
-                    }else {
-//把需要传递到下个页面的数据put到intent里
-                        intent.putExtra("username",emc.getUserName());
+//                    Intent intent = new Intent(context, PrivateMessageActivity.class);
+//                    //获取点击的item内容数据
+//                    EMConversation emc= (EMConversation) list.get(position);
+//                    if (emc.getType()==EMConversation.EMConversationType.GroupChat){
+//
+//                        intent.putExtra("groupId",emc.getUserName());
+//                    }else {
+////把需要传递到下个页面的数据put到intent里
+//                        intent.putExtra("username",emc.getUserName());
+//                    }
+//                    context.startActivity(intent);
+//
+                    if (listItemClick != null) {
+                        listItemClick.onClick(position);
                     }
-                    context.startActivity(intent);
                 }
             });
 
@@ -169,5 +184,9 @@ linearLayout= (LinearLayout) convertView.findViewById(R.id.la);
 
 
         return (int) (time / 24);
+    }
+    public  void setTextMap(HashMap<String, String> textMap) {
+        this.textMap = textMap;
+        notifyDataSetChanged();
     }
 }

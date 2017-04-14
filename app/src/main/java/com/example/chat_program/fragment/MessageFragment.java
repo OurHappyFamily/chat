@@ -16,8 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chat_program.R;
+import com.example.chat_program.act.MainActivity;
+import com.example.chat_program.act.MessageActivity;
 import com.example.chat_program.act.PrivateMessageActivity;
 import com.example.chat_program.adapter.MessageAdapter;
+import com.example.chat_program.callback.ListItemClick;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
@@ -27,6 +30,7 @@ import com.hyphenate.chat.EMMessage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +38,7 @@ import java.util.Map;
  * 第一个消息列表页
  */
 
-public class MessageFragment extends Fragment implements AdapterView.OnItemLongClickListener, View.OnClickListener, EMCallBack, AdapterView.OnItemClickListener {
+public class MessageFragment extends Fragment implements AdapterView.OnItemLongClickListener, View.OnClickListener, EMCallBack, ListItemClick {
     private EditText editText, editText1;
     private TextView sendbtn, exitbtn;
     private ListView listView;
@@ -66,7 +70,6 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
         sendbtn = (TextView) view.findViewById(R.id.button11);
         exitbtn = (TextView) view.findViewById(R.id.button22);
         listView = (ListView) view.findViewById(R.id.listview_message);
-        listView.setOnItemClickListener(this);
         sendbtn.setOnClickListener(this);
         exitbtn.setOnClickListener(this);
 
@@ -75,11 +78,13 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
 
 
     private void init() {
-
-
+        initData();
+//注册方法
+        EMClient.getInstance().chatManager().addMessageListener(msgListener);
         //没数据时 显示指定textview
 //        listView.setEmptyView(textView);
         adapter = new MessageAdapter(getActivity(), list);
+        adapter.setListItemClick(this);
         listView.setAdapter(adapter);
         //刷新控件初始化
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.shuaxin);
@@ -91,9 +96,9 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
             @Override
             public void onRefresh() {
 //关闭 设置flaes
+                list.clear();
                 swipeRefreshLayout.setRefreshing(false);
-//注册方法
-                EMClient.getInstance().chatManager().addMessageListener(msgListener);
+
                 //获取所有会话的数据源
                 Map<String, EMConversation> conversations = EMClient.getInstance().chatManager().getAllConversations();
                 //遍历Mao集合里边所有的value
@@ -187,7 +192,6 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
     public void onSuccess() {
         getActivity().runOnUiThread(new Runnable() {
             public void run() {
-                list.clear();
                 initData();
                 adapter.notifyDataSetChanged();
                 Toast.makeText(getActivity(), "发送成功", Toast.LENGTH_SHORT).show();
@@ -268,18 +272,23 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
     }
 
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getActivity(), PrivateMessageActivity.class);
-        //获取点击的item内容数据
-        EMConversation emc= (EMConversation) adapter.getItem(position);
-        if (emc.getType()==EMConversation.EMConversationType.GroupChat){
 
-            intent.putExtra("groupId",emc.getUserName());
-        }else {
-//把需要传递到下个页面的数据put到intent里
-            intent.putExtra("username",emc.getUserName());
-        }
-        startActivity(intent);
+
+
+    @Override
+    public void onClick(int id) {
+        ((MessageActivity) getActivity()).intent2Message(list.get(id).getUserName());
     }
-}
+
+    @Override
+    public void onLongClick() {
+
+    }
+
+    @Override
+    public void deleteItem(int id) {
+
+    }
+    public void setChatText(HashMap<String, String> textMap) {
+        adapter.setTextMap(textMap);
+}}
