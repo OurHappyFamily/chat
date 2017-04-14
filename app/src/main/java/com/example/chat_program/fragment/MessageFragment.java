@@ -38,17 +38,14 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
     private EditText editText, editText1;
     private TextView sendbtn, exitbtn;
     private ListView listView;
-<<<<<<< HEAD
-    private List<String> list = new ArrayList<String>();
-    private View view;
-    private TextView textView;
-=======
+
+
+
     private List<EMConversation> list = new ArrayList<EMConversation>();
     private View view;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private MessageAdapter adapter;
->>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -80,27 +77,16 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
     }
 
     private void init() {
-<<<<<<< HEAD
-        listView = (ListView) view.findViewById(R.id.listview_message);
-        textView = (TextView) view.findViewById(R.id.textview);
-        listView.setEmptyView(textView);
-        list.add("aaaaaaa");
-        list.add("aaaaaaa");
-        list.add("aaaaaaa");
-        list.add("aaaaaaa");
-        list.add("aaaaaaa");
-        list.add("aaaaaaa");
-        list.add("aaaaaaa");
 
 
-        MessageAdapter adapter = new MessageAdapter(getActivity(), list);
-=======
+//注册方法
+        EMClient.getInstance().chatManager().addMessageListener(msgListener);
+
 
 
         //没数据时 显示指定textview
 //        listView.setEmptyView(textView);
         adapter = new MessageAdapter(getActivity(), list);
->>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
         listView.setAdapter(adapter);
         //刷新控件初始化
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.shuaxin);
@@ -109,26 +95,24 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
         //下拉刷新监听
         swipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+                    @Override
+                    public void onRefresh() {
 //关闭 设置flaes
-                swipeRefreshLayout.setRefreshing(false);
-//注册方法
-                EMClient.getInstance().chatManager().addMessageListener(msgListener);
-                //获取所有会话的数据源
-                Map<String, EMConversation> conversations = EMClient.getInstance().chatManager().getAllConversations();
-                //遍历Mao集合里边所有的value
-                for (EMConversation emConversation : conversations.values()) {
-                    list.add(emConversation);
+                        list.clear();
+                        swipeRefreshLayout.setRefreshing(false);
 
-                }
+                        //获取所有会话的数据源
+                        Map<String, EMConversation> conversations = EMClient.getInstance().chatManager().getAllConversations();
+                        //遍历Mao集合里边所有的value
+                        for (EMConversation emConversation : conversations.values()) {
+                            list.add(emConversation);
 
-                //刷新listview
-                adapter.notifyDataSetChanged();
-            }
-        });
+                        }
 
-
+                        //刷新listview
+                        adapter.notifyDataSetChanged();
+                    }
+                });
 
 
     }
@@ -187,8 +171,6 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
                 //调用发送文本消息方法
                 sendTxtMsg();
 
-<<<<<<< HEAD
-=======
                 break;
         }
     }
@@ -295,15 +277,14 @@ public class MessageFragment extends Fragment implements AdapterView.OnItemLongC
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getActivity(), PrivateMessageActivity.class);
         //获取点击的item内容数据
-        EMConversation emc= (EMConversation) adapter.getItem(position);
-        if (emc.getType()==EMConversation.EMConversationType.GroupChat){
+        EMConversation emc = (EMConversation) adapter.getItem(position);
+        if (emc.getType() == EMConversation.EMConversationType.GroupChat) {
 
-            intent.putExtra("groupId",emc.getUserName());
-        }else {
+            intent.putExtra("groupId", emc.getUserName());
+        } else {
 //把需要传递到下个页面的数据put到intent里
-            intent.putExtra("username",emc.getUserName());
+            intent.putExtra("username", emc.getUserName());
         }
         startActivity(intent);
->>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
     }
 }

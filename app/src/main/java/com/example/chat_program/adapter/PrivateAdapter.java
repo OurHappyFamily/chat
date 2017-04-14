@@ -28,6 +28,7 @@ public class PrivateAdapter extends BaseAdapter {
     public PrivateAdapter(Context context, List<EMMessage> list) {
         this.context = context;
         this.list = list;
+
     }
 
     @Override

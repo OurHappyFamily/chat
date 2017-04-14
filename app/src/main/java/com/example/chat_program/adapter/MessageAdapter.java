@@ -2,6 +2,7 @@ package com.example.chat_program.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,16 +34,13 @@ import static com.hyphenate.chat.a.b.a.c;
 public class MessageAdapter extends BaseAdapter {
     private LinearLayout linearLayout;
     private Context context;
-<<<<<<< HEAD
-    private List<String> list = new ArrayList();
+    private List<EMConversation> list = new ArrayList();
 
-    public MessageAdapter(Context context, List<String> list) {
-=======
-    private List <EMConversation>list= new ArrayList();
 
-    public MessageAdapter(Context context, List <EMConversation>list) {
->>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
-        this.context = context;
+
+
+    public MessageAdapter(FragmentActivity activity, List<EMConversation> list) {
+        this.context = activity;
         this.list = list;
     }
 
@@ -61,87 +59,67 @@ public class MessageAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override
-<<<<<<< HEAD
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = View.inflate(context, R.layout.item_message, null);
-
-        }
-        TextView textView = (TextView) convertView.findViewById(R.id.text);
-        textView.setText(list.get(position));
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-=======
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
-        if (convertView==null){
-            convertView=View.inflate(context,R.layout.item_message,null);
+        if (convertView == null) {
+            convertView = View.inflate(context, R.layout.item_message, null);
         }
 //            TextView textView= (TextView) convertView.findViewById(R.id.text);
 //            EMConversation bianliang = list.get(position);
 //            EMTextMessageBody body = (EMTextMessageBody) bianliang.getLastMessage().getBody();
 //            textView.setText(body.getMessage());
-linearLayout= (LinearLayout) convertView.findViewById(R.id.la);
-            TextView name = (TextView) convertView.findViewById(R.id.textview1);
-            final TextView content = (TextView) convertView.findViewById(R.id.textview2);
-            TextView time = (TextView) convertView.findViewById(R.id.chat_list_time);
-            TextView unread = (TextView) convertView.findViewById(R.id.chat_list_unread);
-            EMConversation msg=(EMConversation)getItem(position);
-            String username = msg.getUserName();
-            EMMessage latMessage=msg.getLastMessage();
-            EMMessage.Type type=latMessage.getType();
-            switch (type){
-                case TXT:
-                   EMTextMessageBody textMessageBody= (EMTextMessageBody) latMessage.getBody();
-                    content.setText(textMessageBody.getMessage());
+        linearLayout = (LinearLayout) convertView.findViewById(R.id.la);
+        TextView name = (TextView) convertView.findViewById(R.id.textview1);
+        final TextView content = (TextView) convertView.findViewById(R.id.textview2);
+        TextView time = (TextView) convertView.findViewById(R.id.chat_list_time);
+        TextView unread = (TextView) convertView.findViewById(R.id.chat_list_unread);
+        EMConversation msg = (EMConversation) getItem(position);
+        String username = msg.getUserName();
+        EMMessage latMessage = msg.getLastMessage();
+        EMMessage.Type type = latMessage.getType();
+        switch (type) {
+            case TXT:
+                EMTextMessageBody textMessageBody = (EMTextMessageBody) latMessage.getBody();
+                content.setText(textMessageBody.getMessage());
                 break;
 
-            }
+        }
 
-            name.setText(username);
-            time.setText(getLastMsgTime(msg) + "");
+        name.setText(username);
+        time.setText(getLastMsgTime(msg) + "");
 
 
-            linearLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, PrivateMessageActivity.class);
-                    //获取点击的item内容数据
-                    EMConversation emc= (EMConversation) list.get(position);
-                    if (emc.getType()==EMConversation.EMConversationType.GroupChat){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PrivateMessageActivity.class);
+                //获取点击的item内容数据
+                EMConversation emc = (EMConversation) list.get(position);
+                if (emc.getType() == EMConversation.EMConversationType.GroupChat) {
 
-                        intent.putExtra("groupId",emc.getUserName());
-                    }else {
+                    intent.putExtra("groupId", emc.getUserName());
+                } else {
 //把需要传递到下个页面的数据put到intent里
-                        intent.putExtra("username",emc.getUserName());
-                    }
-                    context.startActivity(intent);
+                    intent.putExtra("username", emc.getUserName());
                 }
-            });
+                context.startActivity(intent);
+            }
+        });
 
-            final View finalConvertView = convertView;
-            convertView.findViewById(R.id.item_menu_del).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    list.remove(position);
-                    notifyDataSetChanged();
-                    //关闭侧滑删除控件
-                    ((SwipeMenuLayout) finalConvertView).quickClose();
+        final View finalConvertView = convertView;
+        convertView.findViewById(R.id.item_menu_del).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list.remove(position);
+                notifyDataSetChanged();
+                //关闭侧滑删除控件
+                ((SwipeMenuLayout) finalConvertView).quickClose();
 
-                }
-            });
+            }
+        });
 
-
-
-
-
-
->>>>>>> 6749a750c5e5e02938da83ebddd2bda39f0973bd
 
         return convertView;
     }
@@ -153,32 +131,33 @@ linearLayout= (LinearLayout) convertView.findViewById(R.id.la);
         long notT = new Date().getTime() - t;
 //        return   m2M(notT) > 60 ? (m2H(m2M(notT))>24?H2d(m2H(m2M(notT))):m2H(m2M(notT))): m2M(notT);
 //把时间差的单位重毫秒转成分钟
-        int m=m2M(notT);
+        int m = m2M(notT);
 //判断是否大于60分钟，大于则换成小时
-        if (m > 60){
+        if (m > 60) {
             //判断换成小时后是否大于24小时
-            if (m2H(m)>24){
-                return H2d(m2H(m))+"天前";
+            if (m2H(m) > 24) {
+                return H2d(m2H(m)) + "天前";
             }
-            return m2H(m)+"小时前";
+            return m2H(m) + "小时前";
 
 
-        }else {
+        } else {
             //判断是否大于1分钟
-            if (m>1)
+            if (m > 1)
 
-                return m+"分钟前";
+                return m + "分钟前";
             else
                 return "刚刚";
 
 
+        }
+    }
 
-        }}
     //毫秒转分钟的方法
     private int m2M(long time) {
 
 
-        return (int) (time /1000/ 60);
+        return (int) (time / 1000 / 60);
     }
 
     private int m2H(long time) {
